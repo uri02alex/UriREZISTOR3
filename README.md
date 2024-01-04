@@ -9,10 +9,9 @@
 
 
 
-
-![Primer](https://github.com/uri02alex/REZISTOR3/blob/master/primer/primer.jpg)
+![Primer](https://github.com/uri02alex/UriREZISTOR3/blob/master/primer/primer.jpg)
 
 ## youtube
 
-[![youtube](https://github.com/uri02alex/REZISTOR3/blob/master/primer/primer.jpg)](https://www.youtube.com/watch?v=ztPPJQaYNHk)
+[![youtube](https://github.com/uri02alex/UriREZISTOR3/blob/master/primer/primer.jpg)](https://www.youtube.com/watch?v=ztPPJQaYNHk)
 

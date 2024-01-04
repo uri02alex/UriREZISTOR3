@@ -1,0 +1,193 @@
+
+table{
+    border:solid 1px #cabebe;
+    border-spacing: 0px;
+    padding-left: 2px;
+    }
+
+td{
+font-size:8px;
+padding: 0px;
+padding-left: 2px;
+}
+html,body{
+        width: 100%;
+        height: 100%;
+        background:  rgb(210, 219, 195);
+        }
+#fixed{
+        /*position: fixed;*/
+        right: 0;
+        top: 0;
+        background: rgba(222,222,244,.6);
+        border: 1px solid #a8bb8d;
+        z-index:2;
+        display: flex;
+        flex-basis:autol;
+        align-items: center;
+        justify-content: center;
+        }
+.divselectring{
+        display: flex;
+        flex-basis:autol;
+        align-items: center;
+        justify-content: center;
+
+}
+
+#divimg{
+    position: absolute;
+    top:  30px;
+    left: 300px;
+    scroll-behavior: smooth;
+    height: 400px;
+    width: 950px;
+    background-color: #e5fbdb;
+    }
+canvas{
+        cursor: crosshair;
+        position: relative;
+    }
+
+.table2{
+    border:solid 1px green;
+    }
+.td1{
+    width:300px;
+    }
+.td2{
+    width:300px;
+    }
+
+.uripoint{
+    width:300px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #c1b5db;
+    }
+.sablonrectcolor{width:25px; height: 14px;}
+.red{color:red}
+.green{color:green}
+.blue{color:blue}
+.mal{font-size:8px; color:red}
+.tri{width:25px;display: block;text-align: right;}
+.scrollbox {
+    overflow:scroll;
+    width: 950px;
+    max-height: 600px;
+    margin: 30px auto;
+    background:
+     linear-gradient(white 30%, rgba(255,255,255,0)),
+     linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+     radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+     radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+    background-attachment: local, local, scroll, scroll;
+}
+
+.td2resisrors{
+width:250px;
+background: rgba(222,222,244,.6);
+}
+.resisrors{
+width:250px;
+display: flex;
+text-align: center;
+justify-content: center;
+}
+.bodyresistor{
+border: solid 1px red;
+border-radius: 22px;
+display: flex;
+height: auto;
+}
+.poloska{
+border:solid 1px black;
+width:  15px;
+height: 30px;
+}
+
+.colorX{
+padding-left: 1px;
+padding-right: 1px;
+margin-left: 1px;
+margin-right: 1px;
+margin-top:    0px;
+margin-bottom: 0px;
+width: 37px;
+height: 30px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 2px;
+}
+.color0 {background: rgba( 0,    0,  0);}
+.color1 {background: rgba(165,  42, 42);}
+.color2 {background: rgba(255,   0,  0);}
+.color3 {background: rgba(255, 165,  0);}
+.color4 {background: rgba(255, 255,  0);}
+.color5 {background: rgba(  0, 255,  0);}
+.color6 {background: rgba(  0,   0,255);}
+.color7 {background: rgba(255,   0,255);}
+.color8 {background: rgba(128, 128,128);}
+.color9 {background: rgba(255, 255,255);}
+.color10{background: rgba(212, 160, 44);}
+.color11{background: rgba(179, 179,179);}
+
+.pusto{
+width:  30px;
+
+}
+.strom{
+font-size:26px;
+}
+
+.menupoloska{
+width:20px;
+background: rgba(230,230,230);
+padding-left: 7px;
+}
+
+.menupoloska1{
+background: rgba(179, 179,179);
+}
+.menupoloska2{
+background: rgba(255,   0,  0);
+border-radius: 9px;
+}
+
+.tableUriImg{
+width: 100%;
+}
+
+.tablemain{
+width:  20%;
+
+}
+.tipsresistors{
+display: flex;
+justify-content: center;
+background-color: aliceblue;
+
+}
+
+.imgring{
+width:70px;
+margin-left: 9px;
+margin-right: 16px;
+}
+.saboln{
+}
+
+.sablon_rect_color{
+width:90px;
+
+}
+.namecolor{
+width:90px;
+}
+.point_kod{
+width:20px;
+}
+.red{color:red}
+.green{color:green}

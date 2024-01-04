@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+   <link      href="GrafikFiltr.css"     rel="stylesheet">
+   <script    src="js/jquery-3.6.0.js"   type="text/javascript"></script>
+   <script    src="js/d3.v3.min3.js"     type="text/javascript"></script>
+   <script    src="GrafikSpectrDate.js"  type="text/javascript"></script>
+   <script    src="UriGlob.js"           type="text/javascript"></script>
+   <script    src="UriPoint.js"          type="text/javascript"></script>
+   <script    src="UriColors.js"         type="text/javascript"></script>
+   <script    src="UriArray.js"          type="text/javascript"></script>
+   <script    src="UriSablon.js"         type="text/javascript"></script>
+   <script    src="Rezistor.js"          type="text/javascript"></script>
+   <script    src="UriAuto.js"           type="text/javascript"></script>
+   <script    src="UriSpectrKodColor.js" type="text/javascript"></script>
+
+<title>SBL</title>
+<script>
+margin = 30;
+height  = 500;
+width  = 1200;
+
+
+function clickpoint2(d){
+   s="nom:"+d.nom
+   s=s+' tip:'+d.tip
+   s=s+' sbl:'+d.sbl
+   s=s+' '+d.namecolor
+   s=s+'<br>'+d.rasmin
+   pfon=dat1[0]
+   rasfon=cosine_similarity2(d.r,d.g,d.b,pfon.r,pfon.g,pfon.b)
+   s=s+'<br>'+rasfon+' -фон'
+   s=s+' '
+   info2.innerHTML=s
+}
+
+function DrawRect(minx,maxx,maxy){
+   console.log('DrawBasicGraf ',width,' ',height)
+   svg = d3.select("body").append("svg")
+      .attr("class", "axis")
+      .attr("width", width)
+      .attr("height", height);
+   var xAxisLength = width   - 2 * margin; 
+   var yAxisLength = height  - 2 * margin; 
+   scaleX =d3.time.scale()
+       .domain([minx,maxx])
+       .range([0, xAxisLength]);
+   var xAxis = d3.svg.axis()
+        .scale(scaleX)
+        .orient("bottom")
+        .ticks(10)
+        .innerTickSize(-height+margin+margin)
+        .tickFormat(d3.format('.0f'))
+   ;
+   svg.append("g")
+           .attr("class", "x-axis")
+           .attr("transform", "translate(" + margin + "," + (height - margin) + ")")
+          .call(xAxis);
+
+   scaleY1 =d3.time.scale()
+       //.domain([0,maxy])
+       .domain([0,maxy])
+       .range([yAxisLength,0]);
+
+   var yAxis1 = d3.svg.axis()
+         .scale(scaleY1)
+         .orient("left")
+         .tickFormat(d3.format('.0f'))
+         .innerTickSize(-width+margin+margin)
+         .ticks(20);
+   svg.append("g")
+         .attr("class", "y1-axis")
+         .attr("transform", "translate(" + margin + "," + margin + ")")
+         .style("stroke", "blue")
+         .call(yAxis1);
+   }
+
+function DrawDat(dat){
+   svg.selectAll(".dot2")
+       .data(dat)
+       .enter().append("circle")
+       .style("stroke", function(d) { return "rgb("+d.r+","+d.g+","+d.b+")" })
+       .attr("class", "dot2")
+       .attr("r", 2.0)
+       .attr("cx", function(d) { return scaleX(d.nom)+margin; })
+       .attr("cy", function(d) { return scaleY1(d.sbl)+margin;  });
+   var line1 = d3.svg.line().interpolate("cardinal")
+   .x(function(d){return scaleX(d.nom)+margin;})
+   .y(function(d){return scaleY1(d.sbl)+margin;});
+   var g = svg.append("g");
+   g.append("path")
+       .attr("d", line1(dat))
+       .style("stroke", "red")
+       .style("stroke-width", 1);
+   }
+
+function DrawDat2(dat){
+   svg.selectAll(".dot3")
+    .data(dat)
+    .enter().append("circle")
+    .on("mousemove",function(d){ clickpoint2(d);})
+
+    .style("stroke",'green')
+    .attr("class", "dot3")
+    .attr("r", 3.0)
+    .attr("cx", function(d) { return scaleX(d.nom)+margin; })
+    .attr("cy", function(d) { return scaleY1(d.sbl)+margin;  });
+
+  }
+
+function DrawTrace(dat){
+   c=dat.length
+    for (let i=0;i<c;i++){
+    d=dat[i]
+    x1=scaleX(d.nom)+margin
+    color='red'
+    color="rgb("+d.r+","+d.g+","+d.b+")"
+    svg.append("line")
+      .attr("x1",x1 )
+      .attr("y1",5 )
+      .attr("x2",x1 )
+      .attr("y2",margin-5 )
+      .style("stroke", color)
+      .style("stroke-width", 1)
+      ;
+    }
+  }
+
+</script>
+<body>
+<center id='info2'>!!!!</center>
+<script>
+
+maxnom=0
+for (let i in dat1) {  if (dat1[i].nom > dat1[maxnom].nom) {  maxnom = i  }}
+console.log('max nom=',dat1[maxnom].nom)
+DrawRect(1,dat1[maxnom].nom,26)
+spectr=new UriSpectrKodColor()
+spectr.FiltrDeletePiks(dat1)
+spectr.FindSetFon(dat1)
+spectr.FiltrDeletePiks(dat1)
+spectr.SetGrTip(dat1)
+spectr.CalcNumber(dat1)
+DrawTrace(dat1)
+count=0
+count1=0
+DrawDat2(dat1)
+</script>
+
+</body>
+</html>

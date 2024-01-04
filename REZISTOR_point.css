@@ -1,0 +1,65 @@
+p{
+margin: 0;
+width: 40px;
+
+}
+.sablon{
+    display: flex ;
+    flex-direction: row;
+
+    }
+
+.point_nom{
+width: 17px;
+display: inherit;
+}
+
+.point_H{
+width: 30px;
+display: inherit;
+}
+.point_r{
+width: 30px;
+display: inherit;
+text-align: right;
+}
+.point_g{
+width: 30px;
+display: inherit;
+text-align: right;
+
+}
+
+.point_b{
+width: 30px;
+display: inherit;
+text-align: right;
+
+}
+
+.point_x{
+width: 30px;
+display: inherit;
+text-align: right;
+}
+.point_y{
+width: 30px;
+display: inherit;
+text-align: right;
+}
+
+
+
+.point_Kolvo{
+width: 30px;
+display: inherit;
+text-align: right;
+border: solid 1px aliceblue;
+}
+
+.point_Kod{
+width: 30px;
+display: inherit;
+text-align: right;
+border: solid 1px green;
+}
